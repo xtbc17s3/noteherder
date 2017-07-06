@@ -56,11 +56,15 @@ class App extends Component {
       removeCurrentNote: this.removeCurrentNote,
     }
 
+    const noteData = {
+      notes: this.state.notes,
+      currentNote: this.state.currentNote,
+    }
+
     return (
       <div className="App">
         <Main
-          notes={this.state.notes}
-          currentNote={this.state.currentNote}
+          {...noteData}
           {...actions}
         />
       </div>
