@@ -12,7 +12,6 @@ class App extends Component {
 
     this.state = {
       notes:  {},
-      currentNoteId: null,
       uid: null,
     }
   }
@@ -46,14 +45,6 @@ class App extends Component {
         state: 'notes', // which property to sync
       }
     )
-  }
-
-  setCurrentNote = (note) => {
-    this.setState({ currentNoteId: note.id })
-  }
-
-  resetCurrentNote = () => {
-    this.setCurrentNote({ id: null })
   }
 
   saveNote = (note) => {
@@ -104,8 +95,6 @@ class App extends Component {
       uid: null,
       notes: {},
     })
-
-    this.resetCurrentNote()
   }
 
   signOut = () => {
@@ -117,11 +106,6 @@ class App extends Component {
       saveNote: this.saveNote,
       removeNote: this.removeNote,
       signOut: this.signOut,
-    }
-
-    const noteData = {
-      notes: this.state.notes,
-      currentNoteId: this.state.currentNoteId,
     }
 
     return (
@@ -141,7 +125,7 @@ class App extends Component {
               this.signedIn()
                 ? <Main
                     {...actions}
-                    {...noteData}
+                    notes={this.state.notes}
                   />
                 : <Redirect to="/sign-in" />
             )}
