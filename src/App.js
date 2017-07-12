@@ -71,7 +71,7 @@ class App extends Component {
     notes[note.id] = null
 
     this.setState({ notes })
-    this.props.history.push('/notes')
+    this.props.history.replace('/notes')
   }
 
   signedIn = () => {

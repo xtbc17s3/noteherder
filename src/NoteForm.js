@@ -18,7 +18,7 @@ class NoteForm extends Component {
 
     const noteNotFound = idFromUrl && !note.id
     if (noteNotFound && nextProps.firebaseNotesSynced) {
-      this.props.history.push('/notes')
+      this.props.history.replace('/notes')
     }
     
     let editorValue = this.state.editorValue
